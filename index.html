@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ArcheidoPeople - Il portale dedicato ai dipendenti di Archeido">
+    <title>ArcheidoPeople</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #2cabc0;
+            padding: 1em 0;
+            text-align: center;
+        }
+        .main {
+            margin: 2em auto;
+            max-width: 800px;
+            padding: 1em;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .stardew {
+            margin: 2em auto;
+            max-width: 800px;
+            padding: 1em;
+            background-color: #1b3f0e;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #2cabc0;
+            text-align: center;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>ArcheidoPeople 🐒</h1>
+</header>
+
+<div class="main">
+    <h2>🐒 Portale scimmiesco 🐒</h2>
+    <p>
+        ArcheidoPeople è lo spazio dedicato a tutti i dipendenti di Archeido, pensato per fornire informazioni, risorse e aggiornamenti utili per la vostra vita lavorativa quotidiana. Restate sempre connessi con le ultime novità aziendali, eventi, e iniziative esclusive.
+    </p>
+</div>
+
+<div class="stardew">
+    <h2 style="color: #d25d5d">🍓 Uscita Stardew Valley 1.6 🍓</h2>
+    <div id="countdown">Tempo rimanente all'aggiornamento: 00d 00h 00m 00s</div>
+</div>
+</div>
+<!-- JavaScript per il countdown -->
+<script>
+    // Imposta la data dell'aggiornamento
+    var updateDate = new Date("November 4, 2024 09:00:00").getTime();
+
+    // Aggiorna il countdown ogni secondo
+    var countdownInterval = setInterval(function() {
+        var now = new Date().getTime();
+        var timeRemaining = updateDate - now;
+
+        // Calcola i giorni, ore, minuti e secondi rimanenti
+        var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        // Mostra il risultato nel div con id="countdown"
+        document.getElementById("countdown").innerHTML =
+            "Tempo rimanente all'aggiornamento: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+
+        // Se il countdown è finito, scrivi un messaggio
+        if (timeRemaining < 0) {
+            clearInterval(countdownInterval);
+            document.getElementById("countdown").innerHTML = "L'aggiornamento è arrivato!";
+        }
+    }, 1000);
+</script>
+
+</body>
+</html>
