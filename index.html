@@ -1,163 +1,58 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ArcheidoPeople - Il portale dedicato ai dipendenti di Archeido">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ArcheidoPeople - Il portale dedicato ai dipendenti di Archeido"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <title>ArcheidoPeople</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1e1e1e;
-            color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: #2cabc0;
-            padding: 1em 0;
-            text-align: center;
-        }
-        .main {
-            background-color: #2c2c2c;
-        }
+  </head>
+  <body>
+    <header>
+      <h1>ArcheidoPeople</h1>
+      <h2>🐒 Portale scimmiesco 🐒</h2>
+      <p>
+        ArcheidoPeople è lo spazio dedicato a tutti i dipendenti di Archeido,
+        pensato per fornire informazioni, risorse e aggiornamenti utili per la
+        vostra vita lavorativa quotidiana. Restate sempre connessi con le ultime
+        novità aziendali, eventi, e iniziative esclusive.
+      </p>
+    </header>
 
-        .stardew {
-            background-color: #1b3f0e;
-        }
+    <main>
+      <div class="block-container">
+        <div class="block turns">
+          <h2>🗑️ Turni spazzatura e pulizia 🗑️</h2>
+          <div class="turns-container">
+            <p>
+              <span>Spazzatura:</span>
+              <span id="trash"></span>
+            </p>
+            <p>
+              <span>Macchinette:</span>
+              <span id="machine"></span>
+            </p>
+          </div>
+        </div>
 
-        .turns {
-            background-color: #12474f;
-        }
-
-        .block {
-            margin: 2em auto;
-            max-width: 800px;
-            padding: 1em;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
-        }
-        h2 {
-            font-size: 1.8em;
-            color: #2cabc0;
-            text-align: center;
-        }
-        p {
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>ArcheidoPeople 🐒</h1>
-</header>
-
-<div class="block main">
-    <h2>🐒 Portale scimmiesco 🐒</h2>
-    <p>
-        ArcheidoPeople è lo spazio dedicato a tutti i dipendenti di Archeido, pensato per fornire informazioni, risorse e aggiornamenti utili per la vostra vita lavorativa quotidiana. Restate sempre connessi con le ultime novità aziendali, eventi, e iniziative esclusive.
-    </p>
-</div>
-
-<div class="block stardew">
-    <h2 style="color: #d25d5d">🍓 Uscita Stardew Valley 1.6 🍓</h2>
-    <div id="countdown">Tempo rimanente all'aggiornamento: 00d 00h 00m 00s</div>
-</div>
-
-<div class="block turns">
-    <h2 style="color: #5fb6d2">🗑️ Turni spazzatura e pulizia 🗑️</h2>
-    <p id="trash"></p>
-    <p id="machine"></p>
-</div>
-
-</div>
-<!-- JavaScript per il countdown -->
-<script>
-    // Imposta la data dell'aggiornamento
-    var updateDate = new Date("November 4, 2024 09:00:00").getTime();
-
-    // Aggiorna il countdown ogni secondo
-    var countdownInterval = setInterval(function() {
-        var now = new Date().getTime();
-        var timeRemaining = updateDate - now;
-
-        // Calcola i giorni, ore, minuti e secondi rimanenti
-        var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-        // Mostra il risultato nel div con id="countdown"
-        document.getElementById("countdown").innerHTML =
-            "Tempo rimanente all'aggiornamento: " + days + "d " + hours + "h " + minutes + "m " + seconds + "s";
-
-        // Se il countdown è finito, scrivi un messaggio
-        if (timeRemaining < 0) {
-            clearInterval(countdownInterval);
-            document.getElementById("countdown").innerHTML = "L'aggiornamento è arrivato!";
-        }
-    }, 1000);
-</script>
-
-<script>
-    // List of people
-    const people = [
-        "Tix", "Magra", "Nicole", "Cristina",
-        "Raffaele P", "Raffaele T",
-        "Meto", "Nicolas", "Cristian", "Baraz"
-    ];
-
-    // Function to get the current week number of the year
-    function getWeekNumber(date) {
-        const currentDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-        const dayNum = currentDate.getUTCDay() || 7;
-        currentDate.setUTCDate(currentDate.getUTCDate() + 4 - dayNum);
-        const yearStart = new Date(Date.UTC(currentDate.getUTCFullYear(), 0, 1));
-        return Math.ceil(((currentDate - yearStart) / 86400000 + 1) / 7);
-    }
-
-    // Function to select people for the shifts
-    function selectPeople() {
-        // Get the current week number
-        const currentDate = new Date();
-        const currentWeek = getWeekNumber(currentDate);
-
-        // Retrieve the saved week and shift index from localStorage
-        const savedWeek = localStorage.getItem('savedWeek');
-        let shiftIndex = localStorage.getItem('shiftIndex');
-
-        // If the week has changed or no week is saved, update the shifts
-        if (savedWeek != currentWeek) {
-            shiftIndex = (shiftIndex === null) ? 0 : (parseInt(shiftIndex) + 1) % people.length;
-
-            // Save the new week and updated shift index
-            localStorage.setItem('savedWeek', currentWeek);
-            localStorage.setItem('shiftIndex', shiftIndex);
-        }
-
-        // Convert the shift index to an integer
-        shiftIndex = parseInt(shiftIndex, 10);
-
-        // Select one person for trash and another for machine cleaning
-        const trashPerson = people[(shiftIndex + 1) % people.length];
-        const machinePerson = people[(shiftIndex + 5) % people.length];
-
-        // Display the results
-        document.getElementById("trash").innerText = "Spazzatura: " + trashPerson;
-        document.getElementById("machine").innerText = "Pulizia Macchinette: " + machinePerson;
-    }
-
-    // Run the function when the page loads
-    window.onload = selectPeople;
-</script>
-</body>
+        <div class="block stardew">
+          <h2>🍓 Uscita Stardew Valley 1.6 🍓</h2>
+          <div>
+            <span>Tempo rimanente all'aggiornamento:</span>
+            <span id="countdown">00d 00h 00m 00s</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>

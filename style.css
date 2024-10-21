@@ -1,0 +1,110 @@
+body {
+  font-family: Montserrat, sans-serif;
+  background-color: #313131;
+  color: #fefefe;
+  margin: 0;
+  padding: 30px 0;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
+h2 {
+  font-size: 1.8em;
+  color: #4fc1e3;
+  text-align: center;
+}
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  color: #4fc1e3;
+  padding: 0 10%;
+  text-align: center;
+}
+
+header h1 {
+  color: #fefefe;
+  font-size: 3.5em;
+  margin-top: 0;
+}
+
+header h3 {
+  color: #4fc1e3;
+}
+
+header p {
+  color: #fefefe;
+}
+
+/* GENERIC */
+.block-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 20px 0;
+}
+.block {
+  min-height: 30vh;
+  min-width: 40%;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.block h2 {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.block p {
+  padding: 0;
+  margin: 0;
+}
+
+/* STARDEW */
+.stardew {
+  background-color: #1b3f0e;
+}
+
+.stardew h2 {
+  color: #d25d5d;
+}
+
+/* TURNS */
+.turns {
+  background-color: #12474f;
+}
+
+.turns-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.turns-container p span:first-child {
+  font-weight: 700;
+}
+.turns-container p {
+  width: fit-content;
+}
+
+.turn h2 {
+  color: #fefefe;
+}
