@@ -32,7 +32,6 @@ const people = [
   "Nicole",
   "Cristina",
   "Raffaele P",
-  "Raffaele T",
   "Meto",
   "Nicolas",
   "Cristian",
