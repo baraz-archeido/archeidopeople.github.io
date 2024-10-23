@@ -88,16 +88,16 @@ header p {
 
 /* STARDEW */
 .stardew {
-    background-image: url("magra-texture.png");
+    background-image: url("magra_texture.png");
 }
 
 .stardew h2 {
-    color: #d25d5d;
+    color: #313131;
 }
 
 /* TURNS */
 .turns {
-    background-color: #204046;
+    background-image: url("trash.png");
 }
 
 .turns-container {
