@@ -74,7 +74,7 @@ function selectPeople() {
 
   // Select one person for trash and another for machine cleaning
   const trashPerson = people[(shiftIndex + 1) % people.length];
-  const machinePerson = people[(shiftIndex + 4) % people.length];
+  const machinePerson = people[(shiftIndex + 3) % people.length];
 
   // Display the results
   document.getElementById("trash").innerText = trashPerson;
