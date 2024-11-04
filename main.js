@@ -1,5 +1,5 @@
 // Imposta la data dell'aggiornamento
-var updateDate = new Date("November 4, 2024 09:00:00").getTime();
+var updateDate = new Date("March 30, 2025 00:00:00").getTime();
 
 // Aggiorna il countdown ogni secondo
 var countdownInterval = setInterval(function () {
