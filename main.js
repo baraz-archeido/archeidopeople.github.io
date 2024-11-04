@@ -22,7 +22,7 @@ var countdownInterval = setInterval(function () {
   if (timeRemaining < 0) {
     clearInterval(countdownInterval);
     document.getElementById("countdown").innerHTML =
-      "L'aggiornamento è arrivato!";
+      "Buona estate 🌇";
   }
 }, 1000);
 
