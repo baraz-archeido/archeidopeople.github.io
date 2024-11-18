@@ -18,8 +18,6 @@ var countdownInterval = setInterval(function () {
   document.getElementById("countdown").innerHTML =
     days + "d " + hours + "h " + minutes + "m " + seconds + "s";
 
-  document.getElementById("dumpDate").innerHTML = "Time change date: " + updateDate
-  document.getElementById("dumpNowDate").innerHTML = "Now date: " + now
   // Se il countdown è finito, scrivi un messaggio
   if (timeRemaining < 0) {
     clearInterval(countdownInterval);
