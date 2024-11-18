@@ -56,26 +56,11 @@ function selectPeople() {
   const currentDate = new Date();
   const currentWeek = getWeekNumber(currentDate);
 
-  // Retrieve the saved week and shift index from localStorage
-  const savedWeek = localStorage.getItem("savedWeek");
-  let shiftIndex = localStorage.getItem("shiftIndex");
-
-  // If the week has changed or no week is saved, update the shifts
-  if (savedWeek != currentWeek) {
-    shiftIndex =
-      shiftIndex === null ? 0 : (parseInt(shiftIndex) + 1) % people.length;
-
-    // Save the new week and updated shift index
-    localStorage.setItem("savedWeek", currentWeek);
-    localStorage.setItem("shiftIndex", shiftIndex);
-  }
-
-  // Convert the shift index to an integer
-  shiftIndex = parseInt(shiftIndex, 10);
+  shiftIndex === null ? 0 : currentWeek % people.length;
 
   // Select one person for trash and another for machine cleaning
-  const trashPerson = people[(shiftIndex + 1) % people.length];
-  const machinePerson = people[(shiftIndex + 3) % people.length];
+  const trashPerson = people[(shiftIndex - 1) % people.length];
+  const machinePerson = people[(shiftIndex + 1) % people.length];
 
   // Display the results
   document.getElementById("trash").innerText = trashPerson;
