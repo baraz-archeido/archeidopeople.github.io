@@ -56,7 +56,7 @@ function selectPeople() {
   const currentDate = new Date();
   const currentWeek = getWeekNumber(currentDate);
 
-  let shiftIndex === null ? 0 : currentWeek % people.length;
+  let shiftIndex = null ? 0 : currentWeek % people.length;
 
   // Select one person for trash and another for machine cleaning
   const trashPerson = people[(shiftIndex - 1) % people.length];
