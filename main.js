@@ -30,8 +30,6 @@ const people = [
   "Tix",
   "Magra",
   "Nicole",
-  "Alessandro",
-  "Cristian",
   "Cristina",
   "Raffaele P",
   "Meto",
