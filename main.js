@@ -65,8 +65,8 @@ function selectPeople() {
   // Display the results
   document.getElementById("trash").innerText = trashPerson;
   document.getElementById("machine").innerText = machinePerson;
-    document.getElementById("next-trash").innerText = trashPerson;
-  document.getElementById("next-machine").innerText = machinePerson;
+    document.getElementById("next-trash").innerText = nextTrashPerson;
+  document.getElementById("next-machine").innerText = nextMachinePerson;
 }
 
 // Run the function when the page loads
