@@ -28,8 +28,8 @@ var countdownInterval = setInterval(function () {
 
 const people = [
   "Tix",
-  "Magra",
   "Nicole",
+  "Magra",
   "Alessandro",
   "Cristian",
   "Cristina",
