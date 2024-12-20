@@ -69,18 +69,19 @@ function selectPeople() {
   const currentDate = new Date();
   const currentWeek = getWeekNumber(currentDate);
 
-  let shiftIndex = null ? 0 : currentWeek % people.length;
+  let trashShiftIndex = null ? 0 : currentWeek % trashPeople.length;
+  let coffeeShiftIndex = null ? 0 : currentWeek % coffeePeople.length;
 
   // Select one person for trash and another for machine cleaning
-  const trashPerson = trashPeople[(shiftIndex + 0) % trashPeople.length];
-  const nextTrashPerson = trashPeople[(shiftIndex + 1 ) % trashPeople.length];
-  const machinePerson = coffeePeople[(shiftIndex + 3) % coffeePeople.length];
-  const nextMachinePerson = coffeePeople[(shiftIndex + 4) % coffeePeople.length];
+  const trashPerson = trashPeople[(trashShiftIndex + 0) % trashPeople.length];
+  const nextTrashPerson = trashPeople[(trashShiftIndex + 1 ) % trashPeople.length];
+  const machinePerson = coffeePeople[(coffeeShiftIndex + 3) % coffeePeople.length];
+  const nextMachinePerson = coffeePeople[(coffeeShiftIndex + 4) % coffeePeople.length];
 
   // Display the results
   document.getElementById("trash").innerText = trashPerson;
   document.getElementById("machine").innerText = machinePerson;
-    document.getElementById("next-trash").innerText = nextTrashPerson;
+  document.getElementById("next-trash").innerText = nextTrashPerson;
   document.getElementById("next-machine").innerText = nextMachinePerson;
 }
 
