@@ -26,17 +26,30 @@ var countdownInterval = setInterval(function () {
   }
 }, 1000);
 
-const people = [
+const trashPeople = [
+  "Tix",
+  "Meto",
+  "Nicolas",
+  "Baraz",
+  "Nicole",
+  "Magra",
+  "Alessandro",
+  "Cristian",
+  "Cristina",
+  "Raffaele P"
+];
+
+const coffeePeople = [
+  "Meto",
+  "Nicolas",
+  "Baraz",
   "Tix",
   "Nicole",
   "Magra",
   "Alessandro",
   "Cristian",
   "Cristina",
-  "Raffaele P",
-  "Meto",
-  "Nicolas",
-  "Baraz",
+  "Raffaele P"
 ];
 
 // Function to get the current week number of the year
@@ -59,10 +72,10 @@ function selectPeople() {
   let shiftIndex = null ? 0 : currentWeek % people.length;
 
   // Select one person for trash and another for machine cleaning
-  const trashPerson = people[(shiftIndex + 0) % people.length];
-  const nextTrashPerson = people[(shiftIndex + 1 ) % people.length];
-  const machinePerson = people[(shiftIndex + 3) % people.length];
-  const nextMachinePerson = people[(shiftIndex + 4) % people.length];
+  const trashPerson = trashPeople[(shiftIndex + 0) % trashPeople.length];
+  const nextTrashPerson = trashPeople[(shiftIndex + 1 ) % trashPeople.length];
+  const machinePerson = coffeePeople[(shiftIndex + 3) % coffeePeople.length];
+  const nextMachinePerson = coffeePeople[(shiftIndex + 4) % coffeePeople.length];
 
   // Display the results
   document.getElementById("trash").innerText = trashPerson;
