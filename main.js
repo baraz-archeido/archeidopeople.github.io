@@ -27,29 +27,29 @@ var countdownInterval = setInterval(function () {
 }, 1000);
 
 const trashPeople = [
-  "Tix",
-  "Meto",
-  "Nicolas",
-  "Baraz",
-  "Nicole",
-  "Magra",
-  "Alessandro",
-  "Cristian",
+"Alessandro",
+"Baraz",
   "Cristina",
-  "Raffaele P"
+  "Meto",
+  "Nicolas".
+  "Magra",
+  "Nicole",
+  "Raffaele P",
+  "Tix",
+  "Cristian"
 ];
 
 const coffeePeople = [
+"Alessandro",
+"Baraz",
+  "Cristina",
   "Meto",
   "Nicolas",
-  "Baraz",
-  "Tix",
-  "Nicole",
   "Magra",
-  "Alessandro",
-  "Cristian",
-  "Cristina",
-  "Raffaele P"
+  "Nicole",
+  "Raffaele P",
+  "Tix",
+  "Cristian"
 ];
 
 // Function to get the current week number of the year
