@@ -33,8 +33,8 @@ const trashPeople = [
   "Meto",
   "Nicolas",
   "Magra",
-  "Nicole",
   "Raffaele P",
+  "Nicole",
   "Tix",
   "Cristian"
 ];
@@ -46,8 +46,8 @@ const coffeePeople = [
   "Meto",
   "Nicolas",
   "Magra",
-  "Nicole",
   "Raffaele P",
+  "Nicole",
   "Tix",
   "Cristian"
 ];
