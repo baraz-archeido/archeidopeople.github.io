@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio Colore</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #colorSelection, #app {
+            display: none;
+        }
+        .color-box {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin: 10px;
+            border: 2px solid black;
+        }
+        #colorSquare {
+            width: 450px;
+            height: 450px;
+            margin: 20px auto;
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="startScreen">
+    <h2>Seleziona due colori di riferimento</h2>
+    <label for="color1">Sinistra:</label>
+    <select id="color1"></select>
+    <label for="color2">Destra:</label>
+    <select id="color2"></select>
+    <h3>Imposta intervallo di cambio colore (secondi)</h3>
+    <label for="minTime">Min:</label>
+    <input type="number" id="minTime" value="1" min="1">
+    <label for="maxTime">Max:</label>
+    <input type="number" id="maxTime" value="4" min="2">
+    <br><br>
+    <button onclick="startApp()">Start</button>
+</div>
+
+<div id="app">
+    <button onclick="resetApp()">Torna alla selezione</button>
+    <h2>Colori di riferimento</h2>
+    <div id="referenceColors"></div>
+    <div id="colorSquare"></div>
+</div>
+
+<script>
+    let colors = [
+        { key: "red", label: "Rosso" },
+        { key: "blue", label: "Blu" },
+        { key: "green", label: "Verde" },
+        { key: "yellow", label: "Giallo" },
+        { key: "black", label: "Nero" },
+        { key: "purple", label: "Viola" }
+    ];
+    let interval;
+    let minTime, maxTime;
+
+    function populateColorSelects() {
+        let select1 = document.getElementById("color1");
+        let select2 = document.getElementById("color2");
+        select1.innerHTML = "";
+        select2.innerHTML = "";
+
+        colors.forEach(color => {
+            let option1 = document.createElement("option");
+            option1.value = color.key;
+            option1.textContent = color.label;
+            select1.appendChild(option1);
+
+            let option2 = document.createElement("option");
+            option2.value = color.key;
+            option2.textContent = color.label;
+            select2.appendChild(option2);
+        });
+
+        select1.selectedIndex = Math.floor(Math.random() * colors.length);
+        select2.selectedIndex = Math.floor(Math.random() * colors.length);
+    }
+
+    function startApp() {
+        let color1 = document.getElementById("color1").value;
+        let color2 = document.getElementById("color2").value;
+        minTime = parseInt(document.getElementById("minTime").value);
+        maxTime = parseInt(document.getElementById("maxTime").value);
+
+        document.getElementById("startScreen").style.display = "none";
+        document.getElementById("app").style.display = "block";
+
+        let referenceDiv = document.getElementById("referenceColors");
+        referenceDiv.innerHTML = '';
+
+        [color1, color2].forEach((color, index) => {
+            let container = document.createElement("div");
+            container.style.display = "inline-block";
+            container.style.textAlign = "center";
+
+            let label = document.createElement("div");
+            label.textContent = index === 0 ? "Sinistra" : "Destra";
+
+            let div = document.createElement("div");
+            div.className = "color-box";
+            div.style.backgroundColor = color;
+
+            let colorLabel = document.createElement("div");
+            colorLabel.textContent = colors.find(c => c.key === color).label;
+
+            container.appendChild(label);
+            container.appendChild(div);
+            container.appendChild(colorLabel);
+            referenceDiv.appendChild(container);
+        });
+
+        changeColor();
+    }
+
+    function changeColor() {
+        let colorSquare = document.getElementById("colorSquare");
+
+        if (interval) clearInterval(interval);
+
+        function updateColor() {
+            let newColor = colors[Math.floor(Math.random() * colors.length)].key;
+            colorSquare.style.backgroundColor = newColor;
+            let randomInterval = Math.floor(Math.random() * (maxTime - minTime + 1)) + minTime;
+            interval = setTimeout(updateColor, randomInterval * 1000);
+        }
+
+        updateColor();
+    }
+
+    function resetApp() {
+        clearTimeout(interval);
+        document.getElementById("app").style.display = "none";
+        document.getElementById("startScreen").style.display = "block";
+        populateColorSelects();
+    }
+
+    document.addEventListener("DOMContentLoaded", populateColorSelects);
+</script>
+</body>
+</html>
