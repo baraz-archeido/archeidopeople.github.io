@@ -34,7 +34,7 @@ const trashPeople = [
   "Nicolas",
   "Magra",
   "Raffaele P",
-  "Nicole",
+  "Mihcele",
   "Tix",
   "Cristian"
 ];
