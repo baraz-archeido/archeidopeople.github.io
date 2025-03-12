@@ -47,7 +47,7 @@ const coffeePeople = [
   "Nicolas",
   "Magra",
   "Raffaele P",
-  "Nicole",
+  "Michele",
   "Tix",
   "Cristian"
 ];
