@@ -33,7 +33,7 @@ const trashPeople = [
   "Meto",
   "Nicolas",
   "Magra",
-  "Elena"
+  "Elena",
   "Raffaele P",
   "Michele",
   "Tix",
