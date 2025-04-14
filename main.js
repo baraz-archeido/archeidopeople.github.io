@@ -74,10 +74,10 @@ function selectPeople() {
   let shiftIndex = null ? 0 : currentWeek % trashPeople.length;
 
   // Select one person for trash and another for machine cleaning
-  const trashPerson = trashPeople[(shiftIndex + 0) % trashPeople.length];
-  const nextTrashPerson = trashPeople[(shiftIndex + 1 ) % trashPeople.length];
-  const machinePerson = coffeePeople[(shiftIndex + 4) % coffeePeople.length];
-  const nextMachinePerson = coffeePeople[(shiftIndex + 5) % coffeePeople.length];
+  const trashPerson = trashPeople[(shiftIndex + 2) % trashPeople.length];
+  const nextTrashPerson = trashPeople[(shiftIndex + 3 ) % trashPeople.length];
+  const machinePerson = coffeePeople[(shiftIndex + 6) % coffeePeople.length];
+  const nextMachinePerson = coffeePeople[(shiftIndex + 7) % coffeePeople.length];
 
   // Display the results
   document.getElementById("trash").innerText = trashPerson;
