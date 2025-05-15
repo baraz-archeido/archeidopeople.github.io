@@ -77,7 +77,7 @@ function selectPeople() {
 
   // Select one person for trash and another for machine cleaning
   const trashPerson = trashPeople[(shiftIndex + 4) % trashPeople.length];
-  const nextTrashPerson = trashPeople[(shiftIndex + 4 ) % trashPeople.length];
+  const nextTrashPerson = trashPeople[(shiftIndex + 5 ) % trashPeople.length];
   const machinePerson = coffeePeople[(shiftIndex + 8) % coffeePeople.length];
   const nextMachinePerson = coffeePeople[(shiftIndex + 9) % coffeePeople.length];
 
