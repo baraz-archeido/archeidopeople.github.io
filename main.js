@@ -1,6 +1,31 @@
 // Imposta la data dell'aggiornamento
-var updateDate = new Date("March 30, 2025 00:00:00").getTime();
 
+function FindDstSwitchDate() {
+  let month = new Date().getMonth()
+  let year = new Date().getYear()
+  // Set the starting date
+  var baseDate = new Date(Date.UTC(year+1900, month, 1, 0, 0, 0, 0));
+  
+  for (month_loop = month; month_loop < 13; month_loop++) {
+    var tmpDate = new Date(Date.UTC(year+1900, (month_loop + 1)%12, 1, 0, 0, 0, 0));
+    var tmpOffset = baseDate.getTimezoneOffset() - tmpDate.getTimezoneOffset()
+    if (tmpOffset != 0) {
+      var prev_offset = tmpOffset
+      for (day = 1; day < 32; day++) {
+        var tmpDayte = new Date(Date.UTC(year+1900, (month_loop)%12, day, 0, 0, 0, 0));
+        var tmpDatOffset = tmpDayte.getTimezoneOffset() - tmpDate.getTimezoneOffset()
+        if (prev_offset != tmpDatOffset) return [tmpDayte.getMonth() == 9 ,tmpDayte]
+
+        prev_offset = tmpDatOffset
+      }
+    }
+  }
+}
+
+let change_date = FindDstSwitchDate(new Date().getUTCFullYear(), new Date().getMonth())
+
+var updateDate = change_date[1].getTime();
+var is_summer = change_date[0]
 // Aggiorna il countdown ogni secondo
 var countdownInterval = setInterval(function () {
   var now = new Date().getTime();
@@ -19,8 +44,9 @@ var countdownInterval = setInterval(function () {
     days + "d " + hours + "h " + minutes + "m " + seconds + "s";
 
   // Se il countdown è finito, scrivi un messaggio
-  if (timeRemaining < 0) {
+  if (is_summer) {
     clearInterval(countdownInterval);
+    document.getElementById("time-label").innerHTML = "";
     document.getElementById("countdown").innerHTML =
       "Buona estate 🌇";
   }
