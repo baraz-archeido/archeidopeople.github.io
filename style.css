@@ -122,14 +122,14 @@ header p {
 
 /* PLAYLISTS */
 .playlists {
-    background-color: #1db954;
+    background-color: #072c14;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     padding: 20px;
 }
 
 .playlists h2 {
-    color: #313131;
+    color: #fefefe;
 }
 
 .playlists .links {
