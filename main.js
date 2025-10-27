@@ -1,28 +1,32 @@
 // Imposta la data dell'aggiornamento
 
-function FindDstSwitchDate() {
-  let month = new Date().getMonth()
-  let year = new Date().getYear()
+function FindDstSwitchDate(year, month, day) {
   // Set the starting date
-  var baseDate = new Date(Date.UTC(year+1900, month, 1, 0, 0, 0, 0));
-  
-  for (month_loop = month; month_loop < 13; month_loop++) {
-    var tmpDate = new Date(Date.UTC(year+1900, (month_loop + 1)%12, 1, 0, 0, 0, 0));
-    var tmpOffset = baseDate.getTimezoneOffset() - tmpDate.getTimezoneOffset()
-    if (tmpOffset != 0) {
+  var baseDate = new Date(Date.UTC(year, month, 1, 0, 0, 0, 0));
+    for (month_loop = month; month_loop < 18; month_loop++) {
+      var tmpDate = new Date(Date.UTC(year + parseInt((month_loop+1)/12), (month_loop + 1)%12, 1, 0, 0, 0, 0));
+      var tmpOffset = baseDate.getTimezoneOffset() - tmpDate.getTimezoneOffset()
       var prev_offset = tmpOffset
-      for (day = 1; day < 32; day++) {
-        var tmpDayte = new Date(Date.UTC(year+1900, (month_loop)%12, day, 0, 0, 0, 0));
-        var tmpDatOffset = tmpDayte.getTimezoneOffset() - tmpDate.getTimezoneOffset()
-        if (prev_offset != tmpDatOffset) return [tmpDayte.getMonth() == 9 ,tmpDayte]
-
-        prev_offset = tmpDatOffset
+      if (tmpOffset != 0) {
+        for (day_loop = 22; day_loop < 32; day_loop++) {
+          var tmpDayte = new Date(Date.UTC(year + parseInt((month_loop+1)/12), (month_loop)%12, day_loop, 0, 0, 0, 0));
+          var tmpDatOffset = tmpDayte.getTimezoneOffset() - tmpDate.getTimezoneOffset()
+          if (prev_offset != tmpDatOffset && !(day+1 > day_loop && month == month_loop)){
+            return [prev_offset == -60, tmpDayte]
+          } 
+          else{
+            if(prev_offset != tmpDatOffset){
+              baseDate = tmpDate
+            }
+          }
+          prev_offset = tmpDatOffset
+        }
       }
-    }
   }
 }
 
-let change_date = FindDstSwitchDate(new Date().getUTCFullYear(), new Date().getMonth())
+let now_date = new Date()
+let change_date = FindDstSwitchDate(now_date.getUTCFullYear(), now_date.getMonth(), now_date.getDate())
 
 var updateDate = change_date[1].getTime();
 var is_summer = change_date[0]
