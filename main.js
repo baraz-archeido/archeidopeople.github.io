@@ -120,3 +120,4 @@ function selectPeople() {
 
 // Run the function when the page loads
 window.onload = selectPeople;
+window.onload = document.getElementById('current-year').innerHTML = `${(new Date().getUTCFullYear)}`
