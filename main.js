@@ -57,7 +57,7 @@ var countdownInterval = setInterval(function () {
 }, 1000);
 
 const trashPeople = [
-  "Baraz",
+  "Tix",
   "Cristina",
   "Meto",
   "Sara",
@@ -66,7 +66,7 @@ const trashPeople = [
   "Elena",
   "Raffaele P",
   "Michele",
-  "Tix",
+  "Baraz",
 ];
 
 const coffeePeople = [
