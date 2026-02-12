@@ -59,7 +59,7 @@ var countdownInterval = setInterval(function () {
 const trashPeople = [
   "Tix",
   "Cristina",
-  "Meto",
+  "Meto", //
   "Sara",
   "Magra",
   "Elena",
@@ -76,7 +76,7 @@ const coffeePeople = [
   "Magra",
   "Elena",
   "Raffaele P",
-  "Michele",
+  "Michele", //
   "Tix",
 ];
 
@@ -100,12 +100,12 @@ function selectPeople() {
   let shiftIndex = null ? 0 : currentWeek % trashPeople.length;
 
   // Select one person for trash and another for coffee machine cleaning
-  const trashPerson = trashPeople[(shiftIndex + 5) % trashPeople.length];
-  const nextTrashPerson = trashPeople[(shiftIndex + 6) % trashPeople.length];
-  const nextNextTrashPerson = trashPeople[(shiftIndex + 7) % trashPeople.length]
-  const coffeePerson = coffeePeople[(shiftIndex + 11) % coffeePeople.length];
-  const nextCoffeePerson = coffeePeople[(shiftIndex + 12) % coffeePeople.length];
-  const nextNextCoffeePerson = coffeePeople[(shiftIndex + 13) % coffeePeople.length]
+  const trashPerson = trashPeople[(shiftIndex + 4) % trashPeople.length];
+  const nextTrashPerson = trashPeople[(shiftIndex + 5) % trashPeople.length];
+  const nextNextTrashPerson = trashPeople[(shiftIndex + 6) % trashPeople.length]
+  const coffeePerson = coffeePeople[(shiftIndex + 9) % coffeePeople.length];
+  const nextCoffeePerson = coffeePeople[(shiftIndex + 10) % coffeePeople.length];
+  const nextNextCoffeePerson = coffeePeople[(shiftIndex + 11) % coffeePeople.length]
 
   // Display the results
   document.getElementById("trash").innerText = trashPerson;
