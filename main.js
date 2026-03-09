@@ -64,8 +64,8 @@ const trashPeople = [
   "Elena",
   "Sara",
   "Raffaele P",
-  "Michele",
   "Baraz",
+  "Michele",
 ];
 
 const coffeePeople = [
