@@ -71,13 +71,13 @@ const trashPeople = [
 const coffeePeople = [
   "Baraz",
   "Cristina",
+  "Tix",
   "Meto",
   "Sara",
   "Magra",
   "Michele",
   "Raffaele P",
   "Elena",
-  "Tix",
 ];
 
 // Function to get the current week number of the year
