@@ -103,9 +103,9 @@ function selectPeople() {
   const trashPerson = trashPeople[(shiftIndex + 2) % trashPeople.length];
   const nextTrashPerson = trashPeople[(shiftIndex + 3) % trashPeople.length];
   const nextNextTrashPerson = trashPeople[(shiftIndex + 4) % trashPeople.length]
-  const coffeePerson = coffeePeople[(shiftIndex + 9) % coffeePeople.length];
-  const nextCoffeePerson = coffeePeople[(shiftIndex + 10) % coffeePeople.length];
-  const nextNextCoffeePerson = coffeePeople[(shiftIndex + 11) % coffeePeople.length]
+  const coffeePerson = coffeePeople[(shiftIndex + 0) % coffeePeople.length];
+  const nextCoffeePerson = coffeePeople[(shiftIndex + 1) % coffeePeople.length];
+  const nextNextCoffeePerson = coffeePeople[(shiftIndex + 2) % coffeePeople.length]
 
   // Display the results
   document.getElementById("trash").innerText = trashPerson;
